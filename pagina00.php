@@ -28,3 +28,4 @@ require_once './includes/navegacion_1.php';
 <script src="./js/javascript.js"></script>
 <!-- Incluir el pie de página -->
 <?php require_once 'includes/footer.php'; ?>
+<!-- prueba -->
