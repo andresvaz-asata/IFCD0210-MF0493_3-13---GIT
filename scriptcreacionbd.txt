@@ -1,0 +1,72 @@
+-- Crear la base de datos
+CREATE DATABASE SistemaTickets;
+
+-- Seleccionar la base de datos
+USE SistemaTickets;
+
+-- Crear la tabla Ubicacion
+CREATE TABLE Ubicacion (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    ciudad VARCHAR(50) NOT NULL
+);
+
+-- Insertar ciudades capitales de Europa como ubicaciones
+INSERT INTO Ubicacion (ciudad)
+VALUES
+    ('Madrid'),
+    ('París'),
+    ('Londres'),
+    ('Roma'),
+    ('Berlín'),
+    ('Ámsterdam'),
+    ('Viena'),
+    ('Atenas'),
+    ('Dublín'),
+    ('Lisboa');
+
+-- Crear la tabla Usuario
+CREATE TABLE Usuario (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    apellidos VARCHAR(50) NOT NULL,
+    correo VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    rol ENUM('administrador', 'cliente') NOT NULL,
+    ubicacion_id INT NOT NULL,
+    FOREIGN KEY (ubicacion_id) REFERENCES Ubicacion(id)
+);
+
+-- Crear la tabla Ticket
+CREATE TABLE Ticket (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fecha DATETIME NOT NULL,
+    descripcion TEXT NOT NULL,
+    estado ENUM('abierto', 'en proceso', 'cerrado') NOT NULL
+);
+
+-- Crear la tabla que relaciona usuarios y tickets
+CREATE TABLE UsuarioTicket (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    id_ticket INT NOT NULL,
+    FOREIGN KEY (id_usuario) REFERENCES Usuario(id),
+    FOREIGN KEY (id_ticket) REFERENCES Ticket(id)
+);
+
+-- Insertar usuarios de ejemplo
+INSERT INTO Usuario (nombre, apellidos, correo, password, rol, ubicacion_id)
+VALUES
+    ('Usuario1', 'Apellido1', 'usuario1@example.com', 'password1', 'cliente', 1),
+    ('Usuario2', 'Apellido2', 'usuario2@example.com', 'password2', 'cliente', 2),
+    ('Admin1', 'AdminApellido1', 'admin1@example.com', 'adminpassword1', 'administrador', 3),
+    ('Admin2', 'AdminApellido2', 'admin2@example.com', 'adminpassword2', 'administrador', 4);
+
+-- Insertar un ticket de ejemplo
+INSERT INTO Ticket (fecha, descripcion, estado)
+VALUES
+    (NOW(), 'Descripción del ticket 1', 'abierto');
+
+-- Insertar relación entre usuarios y tickets
+INSERT INTO UsuarioTicket (id_usuario, id_ticket)
+VALUES
+    (1, 1);

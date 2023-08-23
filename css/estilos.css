@@ -1,0 +1,295 @@
+/* Reset de estilos para eliminar márgenes y padding */
+body,
+h1,
+h2,
+p,
+ul,
+li,
+form,
+label,
+input {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Estilos generales a todas las páginas */
+
+h1 a,
+li a,
+.paginacion a,
+th a {
+  text-decoration: none;
+  color: inherit; /* Heredar el color del elemento padre */
+}
+h1 a:hover,
+li a:hover,
+.paginacion a:hover,
+th a:hover {
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Aplicar el text-shadow en el estado de hover */
+}
+
+.modoOscuro h1 a {
+  color: inherit;
+}
+.modoOscuro h1 a:hover,
+.modoOscuro li a:hover {
+  color: inherit;
+  text-shadow: 2px 2px 8px rgba(255, 255, 255, 1); /* Aplicar el text-shadow en modo oscuro */
+}
+
+body {
+  /* background-image: url('../imgs/fondo04_claro.jpg');
+  background-size: cover; */
+  background-color: #d6e5ea;
+  color: black;
+  font-family: "Roboto", sans-serif;
+}
+
+.modoOscuro {
+  /* background-image: url('../imgs/fondo04_oscuro.jpg');
+  background-size: cover; */
+  background-color: #113842;
+  color: white;
+}
+
+.welcome-section {
+  background-image: url("../imgs/fondo02.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 50px 0;
+  color: white; /* Color del texto para que sea legible en la imagen */
+}
+
+.welcome-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Fondo semitransparente para que el texto sea legible */
+}
+/* Estilos para los elementos article */
+article {
+  display: flex;
+  flex-wrap: wrap;
+  height: 250px;
+  width: 80%;
+  margin-bottom: 20px; /* Separación entre los elementos article */
+}
+
+/* Estilos para los botones e inputs de los formularios*/
+.estilos-input,
+.estilos-editar,
+.estilos-eliminar,
+.button-link {
+  display: inline-block;
+  padding: 5px 5px;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+/* Estilos para los textarea */
+.textarea-con-estilo {
+  font-size: 16px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  box-sizing: border-box;
+  width: 80%;
+  min-height: 100px;
+}
+
+.estilos-input {
+  background-color: #3ca300;
+  border: 1px solid #1f5500;
+}
+.estilos-input:hover {
+  background-color: #1f5500;
+  border-color: #1f5500;
+}
+
+.estilos-editar {
+  background-color: #928800;
+  border: 1px solid #5a5400;
+}
+.estilos-editar:hover {
+  background-color: #5a5400;
+  border-color: #5a5400;
+}
+
+.estilos-eliminar {
+  background-color: #924200;
+  border: 1px solid #5a2400;
+}
+.estilos-eliminar:hover {
+  background-color: #5a2400;
+  border-color: #5a2400;
+}
+
+.button-link {
+  background-color: #006bd6;
+  border: 1px solid #00172e;
+}
+.button-link:hover {
+  background-color: #012346;
+  border-color: #012346;
+}
+
+ol li {
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1em;
+}
+
+ol li:not(:last-of-type) {
+  margin-bottom: 1em;
+}
+
+main {
+  padding: 2vh;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* Estilos del header y footer */
+header {
+  text-align: center;
+  background-color: #b31d16;
+}
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #282a2b;
+  color: white;
+}
+/* Tamaños generales */
+header,
+footer {
+  height: 10vh;
+}
+.logo img {
+  height: 10vh;
+  width: auto;
+}
+
+main {
+  height: 80vh;
+  padding: 2vh;
+  overflow: auto;
+}
+
+/* Tamaños de fuente */
+h1 {
+  font-size: 1em;
+  max-width: 90%; /* Limitar el ancho del título */
+  text-overflow: ellipsis; /* Mostrar puntos suspensivos (...) si el texto se desborda */
+  overflow: hidden; /* Ocultar cualquier parte del texto que se desborde */
+}
+
+h2 {
+  font-size: 1.2em;
+}
+
+h3,
+form label,
+form input {
+  font-size: 1em;
+}
+
+p {
+  font-size: 0.8em;
+}
+
+main {
+  flex-direction: column;
+}
+
+ol h3 {
+  color: red;
+}
+
+.modoOscuro ol h3 {
+  color: orange;
+}
+
+/* Estilos para pantallas grandes */
+@media screen and (min-width: 768px) {
+  /* Tamaños generales */
+  header,
+  footer {
+    height: 10vh;
+  }
+
+  main {
+    height: 80vh;
+    padding: 2vh;
+    overflow: auto;
+  }
+
+  /* Tamaños de fuente */
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+
+  h3 {
+    font-size: 1.5em;
+  }
+
+  a {
+    font-size: 1.2em;
+  }
+
+  p,
+  form label,
+  form input,
+  form select {
+    font-size: 1.2em;
+  }
+
+  form select {
+    width: 250px;
+  }
+
+  main {
+    flex-direction: row;
+  }
+
+  section {
+    flex: 3;
+    /* Ajusta el ancho del section */
+  }
+
+  nav {
+    flex: 1;
+    order: +1;
+  }
+
+  nav ol li {
+    margin-left: 10%;
+  }
+}
